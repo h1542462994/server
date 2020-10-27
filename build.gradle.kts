@@ -12,14 +12,17 @@ version = "1.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    maven { setUrl("http://maven.aliyun.com/nexus/content/groups/public/")  }
     mavenCentral()
 }
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    runtimeOnly("mysql:mysql-connector-java")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
