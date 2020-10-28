@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.tty.server.model.ApiResponse
-import org.tty.server.model.Response
+import org.tty.server.model.Responses
 import javax.servlet.http.HttpServletRequest
 
 @RestControllerAdvice
@@ -21,9 +21,10 @@ class GlobalExceptionHandler {
     @ExceptionHandler(BindException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun defaultErrorHandler(request: HttpServletRequest, exception: Exception) : ApiResponse<Int> {
+        logger.warn(exception.localizedMessage)
         if (exception is BindException){
-            return Response.validateError(exception.toString())
+            return Responses.validateError(exception.toString())
         }
-        return Response.validateError("error")
+        return Responses.validateError("error")
     }
 }

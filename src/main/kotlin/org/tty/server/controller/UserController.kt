@@ -1,16 +1,22 @@
 package org.tty.server.controller
 
-import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.validation.annotation.*
+import org.springframework.web.bind.annotation.*
 import org.tty.server.forms.UserForm
+import org.tty.server.model.ApiResponse
+import org.tty.server.service.UserService
+import javax.validation.Valid
 
 @RestController
 class UserController {
-    @GetMapping("/login")
+    @Autowired
+    private lateinit var userService: UserService
+
+    @RequestMapping("/register", method = [RequestMethod.GET, RequestMethod.POST])
     @ResponseBody
-    fun login(@Validated user: UserForm): String{
-        return "hello"
-    }
+    fun register(@Validated user: UserForm): ApiResponse<Any> = userService.register(user)
+
+
+
 }

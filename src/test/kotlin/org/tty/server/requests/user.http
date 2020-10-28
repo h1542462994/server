@@ -1,5 +1,12 @@
-GET http://localhost:8080/login?uid=admin&name=admin&password=qwe&email=admin@admin.com
-Accept: application/json
 
-###
 
+### user.register GET action
+
+GET http://{{host}}/register?uid=test1&name=test1&password=testpassword&email=test@test.com
+
+### user.register POST action
+
+POST http://{{host}}/register
+Content-Type: application/x-www-form-urlencoded
+
+uid=test1&name=test1&password=testpassword&email=test@test.com

@@ -9,7 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 class SecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity?) {
+        // 不启动任何授权
         http!!.authorizeRequests()
-                .anyRequest().permitAll().and().logout().permitAll();
+                .anyRequest().permitAll().and().logout().permitAll()
+
+        // 关闭csrf
+        http.csrf().disable()
     }
 }

@@ -1,5 +1,6 @@
 package org.tty.server.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.Entity
 import javax.persistence.Id
 
@@ -10,6 +11,7 @@ class User {
     var type: Long = NORMAL
     lateinit var groupType: String
     lateinit var name: String
+    @JsonIgnore
     lateinit var password: String
 
     lateinit var email: String
