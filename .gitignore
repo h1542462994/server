@@ -14,3 +14,5 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 /.idea/
+src/main/resources/config/application-prod.properties
+src/main/resources/config/application-dev.properties
