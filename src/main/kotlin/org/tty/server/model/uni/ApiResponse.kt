@@ -1,4 +1,4 @@
-package org.tty.server.model
+package org.tty.server.model.uni
 
 data class ApiResponse<T>(
         var code: Int,

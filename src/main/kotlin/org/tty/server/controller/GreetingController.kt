@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController
 import org.tty.server.service.Greeting
 import java.util.concurrent.atomic.AtomicLong
 
-
+/**
+ * 欢迎界面
+ */
 @RestController
 class GreetingController {
     private val counter = AtomicLong()

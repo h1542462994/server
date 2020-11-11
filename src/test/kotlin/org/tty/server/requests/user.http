@@ -1,5 +1,4 @@
 
-
 ### user.register GET action
 
 GET http://{{host}}/register?uid=test1&name=test1&password=testpassword&email=test@test.com
@@ -10,3 +9,12 @@ POST http://{{host}}/register
 Content-Type: application/x-www-form-urlencoded
 
 uid=test1&name=test1&password=testpassword&email=test@test.com
+
+### user.login POST action
+
+POST http://{{host}}/login
+Content-Type: application/x-www-form-urlencoded
+
+uid=test1&password=testpassword
+
+###

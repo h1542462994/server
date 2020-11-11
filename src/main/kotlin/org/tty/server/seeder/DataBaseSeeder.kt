@@ -2,7 +2,7 @@ package org.tty.server.seeder
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import org.tty.server.model.User
+import org.tty.server.model.entity.User
 import org.tty.server.repository.UserRepository
 import org.tty.server.security.UserEncryptor
 
@@ -15,8 +15,6 @@ class DataBaseSeeder {
     private lateinit var userEncryptor: UserEncryptor
 
     fun insertData() {
-
-
         if (userRepository.findById("admin").isEmpty) {
             userRepository.save(
                     User(uid = "admin", type = User.NORMAL, groupType = User.GROUP_NORMAL, name = "admin", password = "admin_password", email = "admin@outlook.com" )
