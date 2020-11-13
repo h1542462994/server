@@ -12,4 +12,5 @@ class UserEncryptor {
         user.password = encryptedPassword
         return user
     }
+
 }

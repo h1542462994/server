@@ -1,4 +1,4 @@
-package org.tty.server.model.uni
+package org.tty.server.model.common
 
 
 object Responses {

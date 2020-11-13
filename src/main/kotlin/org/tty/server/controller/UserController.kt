@@ -3,15 +3,17 @@ package org.tty.server.controller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.validation.annotation.*
 import org.springframework.web.bind.annotation.*
+import org.tty.server.forms.UserAutoLoginForm
 import org.tty.server.forms.UserForm
 import org.tty.server.forms.UserLoginForm
-import org.tty.server.model.uni.ApiResponse
+import org.tty.server.model.common.ApiResponse
 import org.tty.server.service.UserService
 
 /**
  * 用户控制器
  */
 @RestController
+@RequestMapping("/user")
 class UserController {
     @Autowired
     private lateinit var userService: UserService
@@ -26,8 +28,15 @@ class UserController {
     /**
      * 登录一个用户
      */
-    @RequestMapping("/login", method= [RequestMethod.GET, RequestMethod.POST])
+    @RequestMapping("/login", method = [RequestMethod.GET, RequestMethod.POST])
     @ResponseBody
     fun login(@Validated user: UserLoginForm): ApiResponse<Any> = userService.login(user)
+
+    /**
+     * 进行自动登录
+     */
+    @RequestMapping("/auto_login", method = [RequestMethod.GET, RequestMethod.POST])
+    @ResponseBody
+    fun autoLogin(@Validated userAutoLoginForm: UserAutoLoginForm): ApiResponse<Any> = userService.autoLogin(userAutoLoginForm)
 
 }

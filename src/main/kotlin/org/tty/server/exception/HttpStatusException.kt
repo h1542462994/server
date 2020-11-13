@@ -1,7 +1,6 @@
 package org.tty.server.exception
 
-import org.springframework.http.HttpStatus
-import org.tty.server.model.uni.ApiResponse
+import org.tty.server.model.common.ApiResponse
 import java.lang.Exception
 
 class HttpStatusException(var response: ApiResponse<Any>): Exception("return Failed HttpStatusCode")
