@@ -1,5 +1,7 @@
+### greeting GET action
 
-
+GET http://{{host}}/greeting
+Accept: application/json
 
 ### user.register GET action
 
@@ -31,6 +33,6 @@ uid=test1&token=60bec318-f25d-46d9-b422-289d27963834
 POST http://{{host}}/user/auto_login
 Content-Type: application/x-www-form-urlencoded
 
-uid=test1&token=39cf6c95-200f-4aa2-8613-536089fe0dbb
+uid=test1&token=92402ae9-0a61-42ac-bf45-1ae518ea0c93
 
 ###

@@ -12,7 +12,7 @@ version = "1.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-    maven { setUrl("http://maven.aliyun.com/nexus/content/groups/public/")  }
+    maven("https://maven.aliyun.com/repository/public")
     mavenCentral()
 }
 
@@ -24,8 +24,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation") // 表单校验
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
+    // http客户端
+    implementation("org.apache.httpcomponents:httpclient")
+    // html解析工具
+    implementation("org.jsoup:jsoup:1.10.2")
     runtimeOnly("mysql:mysql-connector-java")
+    runtimeOnly("org.xerial:sqlite-jdbc")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }

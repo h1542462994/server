@@ -8,7 +8,7 @@ import javax.persistence.*
 @Entity
 class UserToken {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonIgnore
     var id: Int? = null
     lateinit var uid: String
