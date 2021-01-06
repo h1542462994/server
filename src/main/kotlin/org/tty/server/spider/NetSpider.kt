@@ -6,6 +6,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.impl.client.HttpClients
+import org.apache.http.message.BasicNameValuePair
 import org.apache.http.util.EntityUtils
 import java.util.*
 
@@ -24,11 +25,13 @@ class NetSpider(var domain: String) {
         return NetResponse(response.statusLine.statusCode, value)
     }
 
-    fun post(uri: String, params: List<NameValuePair> = listOf()): NetResponse {
+    fun post(uri: String, vararg params: Pair<String, Any?>): NetResponse {
         val request = HttpPost("${domain}${uri}")
         request.setHeader("User-Agent", userAgent)
         request.config = requestConfig
-        request.entity = UrlEncodedFormEntity(params, Charsets.UTF_8)
+        request.entity = UrlEncodedFormEntity(
+            params.map{  BasicNameValuePair(it.first, it.second.toString())
+            }, Charsets.UTF_8)
         val response = httpClient.execute(request)
         val value = EntityUtils.toString(response.entity, "GBK")
         return NetResponse(response.statusLine.statusCode, value)

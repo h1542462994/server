@@ -26,7 +26,13 @@ class ServerApplicationTests {
 
     @Test
     fun testLink() {
-        printObject(zfSpiderService.link())
+        val result = zfSpiderService.link()
+        printObject(result)
+        println(zfSpiderService.login(result, "pe6gxm"))
+    }
+
+    fun testLogin() {
+
     }
 
 }
